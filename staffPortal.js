@@ -1,28 +1,26 @@
 //Turn on load animation and hide main content until loaded.
 document.getElementById('pageTitle').style.display = "none";
-document.getElementById('mainSection').style.display = "none";
+document.getElementById('mainPageSection').style.display = "none";
 document.getElementById('sessionsSection').style.display = "none";
 
 //Get the data to populate the field
-let userName = "Lennox Cairns"
+let staffName = "Kelly Polis"
 //sessionStorage.getItem('staffName');
-document.getElementById('staffName').innerHTML = userName
+document.getElementById('staffName').innerHTML = staffName
 const url = 'https://pffm.azurewebsites.net/employee'
-const uri = `${url}/?name=${userName}`
+const uri = `${url}/?name=${staffName}`
 console.log(uri)
 fetch(uri)
   .then(response => response.json())
   .then(data => populatePage(data))    
     //.then(data => )
-    //.catch(err => showErrorMsg(err))
+  .catch(err => showErrorMsg(err))
 
 //Populate the portal
 function populatePage(data) {
     document.getElementById('name').innerHTML = data.name;
     document.getElementById('email').innerHTML = data.email;
     document.getElementById('phone').innerHTML = data.phone;
-    document.getElementById('dob').innerHTML = data.dob;
-    document.getElementById('email').innerHTML = data.Email;
     document.getElementById('address').innerHTML = data.address;
     document.getElementById('city').innerHTML = data.city
     document.getElementById('state').innerHTML = data.state;
@@ -47,7 +45,7 @@ function populatePage(data) {
 function showPage() {
     document.getElementById('loadingAnimation').style.display = "none"
     document.getElementById('pageTitle').style.display = "block";
-    document.getElementById('mainSection').style.display = "block";
+    document.getElementById('mainPageSection').style.display = "block";
     document.getElementById('sessionsSection').style.display = "block";
 }
 
