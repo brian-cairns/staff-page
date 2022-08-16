@@ -4,7 +4,10 @@ document.getElementById('mainPageSection').style.display = "none";
 document.getElementById('sessionsSection').style.display = "none";
 
 //Get the data to populate the field
-let staffName = "Kelly Polis"
+let staffName = ''
+const params = new URLSearchParams(window.location.search)
+for (const [key, value] of params) { staffName = value; }
+
 //sessionStorage.getItem('staffName');
 document.getElementById('staffName').innerHTML = staffName
 const url = 'https://pffm.azurewebsites.net/employee'
