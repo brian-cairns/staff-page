@@ -36,6 +36,7 @@ async function populatePage(data) {
     document.getElementById('emergencyPhone').innerHTML = data.emergencyPhone;
     document.getElementById('hrsWorked').innerHTML = data.hrsWorked
     document.getElementById('payday').innerHTML = getPayPeriod()
+    docuemnt.getElementById('supervisor').innerHTML = data.supervisor
   await fillClients(data.clients)    
   await fillSessionSummaries(data.IISSSesions)
   await fillFamilySessionSummaries(data.familyTrainingSessions)
